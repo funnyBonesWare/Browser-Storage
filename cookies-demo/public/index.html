@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cookies demo</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <h1>Cookies demo</h1>
+
+    <section>
+      <h2>Server (auth-style)</h2>
+      <p>Login: server sends Set-Cookie; browser stores and sends it back.</p>
+      <input id="username" placeholder="Username" value="alice" />
+      <button data-action="login">Login</button>
+      <button data-action="me">Who am I?</button>
+    </section>
+
+    <section>
+      <h2>Client (theme)</h2>
+      <p>Theme is stored in document.cookie only.</p>
+      <label>
+        Theme
+        <select id="theme">
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+        </select>
+      </label>
+    </section>
+
+    <section>
+      <label>Log</label>
+      <pre id="log">Ready.</pre>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IndexedDB Demo</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <h1>IndexedDB Demo</h1>
+    <section>
+      <label>Name</label>
+      <input id="name" placeholder="e.g. Alice" />
+      <label>Score</label>
+      <input id="score" type="number" placeholder="e.g. 42" />
+      <button onclick="addRecord()">Add</button>
+      <button onclick="readAll()">Read all</button>
+      <button onclick="clearStore()">Clear</button>
+    </section>
+    <section>
+      <label>Log</label>
+      <pre id="log">Ready.</pre>
+    </section>
+  </body>
+</html>
