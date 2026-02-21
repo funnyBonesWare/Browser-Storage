@@ -16,17 +16,18 @@ app.post("/api/login", (req, res) => {
   const token =
     "sess_" + Date.now() + "_" + Math.random().toString(36).slice(2);
   res.setHeader("Content-Type", "application/json");
-  res.cookie("session", token, {
-    maxAge: 60 * 60 * 1000,
-    httpOnly: true,
-    sameSite: "lax",
-    path: "/",
-  });
+  const cookieOpts = {
+    maxAge: 60 * 60 * 1000, // 1 hour (ms)
+    httpOnly: true, // not readable by JS (session only)
+    sameSite: "lax", // CSRF protection: lax | strict | none
+    path: "/", // sent for all paths
+    secure: false, // true when served over HTTPS
+  };
+  res.cookie("session", token, cookieOpts);
+
   res.cookie("user", username, {
-    maxAge: 60 * 60 * 1000,
-    httpOnly: false,
-    sameSite: "lax",
-    path: "/",
+    ...cookieOpts,
+    httpOnly: false, // readable by JS for demo display
   });
   res.json({ ok: true, user: username });
 });
